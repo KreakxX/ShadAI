@@ -1,0 +1,1 @@
+ button,  bg-indigo-500,  rounded-full, label: Login

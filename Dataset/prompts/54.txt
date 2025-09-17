@@ -1,0 +1,1 @@
+ button,  bg-blue-500 hover:bg-black,  rounded-lg border shadow, label: Submit

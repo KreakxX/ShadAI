@@ -1,0 +1,1 @@
+<button className="bg-purple-500 rounded rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-in-out">Click Me</button>

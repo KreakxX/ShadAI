@@ -1,0 +1,1 @@
+ button,  bg-blue-500,  rounded-lg, label: Sign Up

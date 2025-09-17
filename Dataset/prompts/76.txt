@@ -1,0 +1,1 @@
+ button,  bg-blue-500 hover:bg-purple-600,  rounded shadow-xl focus:ring-3 rounded-lg transition duration-100ms ease-in-out transform group justify-start space-x-4 my-2 border, label: Submit

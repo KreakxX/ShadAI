@@ -1,0 +1,1 @@
+<button className="bg-purple-500 hover:bg-purple-600 focus:outline-none rounded border-2 border-transparent disabled:opacity-25">{`Press Me`}</button>

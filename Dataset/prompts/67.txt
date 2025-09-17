@@ -1,0 +1,1 @@
+ button,  bg-yellow-300,  rounded border-2xl, label: Click Me

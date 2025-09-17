@@ -1,0 +1,1 @@
+ button,  bg-blue-500 hover:bg-teal-700,  rounded rounded-lg shadow-xl transition-all duration-200 ease-in-out, label: Submit

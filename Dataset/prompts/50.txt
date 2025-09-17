@@ -1,0 +1,1 @@
+ button,  bg-blue-500 hover:bg-dark-blue transition-colors duration-300,  rounded, label: Submit

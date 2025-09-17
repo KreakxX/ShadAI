@@ -1,0 +1,1 @@
+ button,  bg-blue-500 hover:bg-darkblue-600,  rounded-lg shadow-md focus:ring-blue-300, label: Click Me

@@ -1,0 +1,1 @@
+ button,  bg-blue-500,  rounded shadow, label: Submit

@@ -1,0 +1,1 @@
+ button,  bg-red-50termate,  rounded, label: Submit

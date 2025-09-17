@@ -1,0 +1,1 @@
+ button,  bg-purple-500 hover:bg-purple-700 focus:ring-purple-800,  rounded, label: Submit

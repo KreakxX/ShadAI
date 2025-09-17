@@ -1,0 +1,1 @@
+ button,  bg-blue-500,  rounded-full shadow-lg hover:bg-blue-700 focus:ring-blue-500 focus:ring-black focus:ring-2xl focus:ring-opacity-70, label: Click Me

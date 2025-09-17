@@ -1,0 +1,1 @@
+ button,  bg-purple-500 hover:bg-purple-600,  rounded border-3xl shadow-md cursor-pointer, label: Join Now

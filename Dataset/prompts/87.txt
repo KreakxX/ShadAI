@@ -1,0 +1,1 @@
+ button,  bg-blue-500,  rounded border-2 hover:bg-gray-700 transition-colors duration-300, label: Click Me

@@ -1,0 +1,1 @@
+ button,  bg-purple-500 hover:bg-purple-600 transition-colors duration-300 ease-in-out,  rounded-full shadow-lg focus:ring-indigo-500 focus:border-indigo-500 disabled:opacity-25, label: Submit

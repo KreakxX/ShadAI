@@ -1,0 +1,1 @@
+ button,  bg-blue-500 hover:bg-darkblue-700 focus:ring-blue-300,  rounded border-2xl, label: Save

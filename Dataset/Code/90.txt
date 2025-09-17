@@ -1,0 +1,1 @@
+<button className="bg-blue-500 hover:bg-indigo-600 focus:outline-2 focus:ring-indigo-400 focus:border-transparent focus:text-white focus:shade-accent-700 transition ease-in duration-300 rounded border shadow px-8 py-2 text-white font-semibold hover:bg-indigo-500 focus:outline-4 focus:border-transparent focus:ring-blue-700 transition ease-in duration-30 end">{`Sign Up`}</button>

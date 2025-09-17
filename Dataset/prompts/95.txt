@@ -1,0 +1,1 @@
+ button,  red-500,  rounded-full shadow-lg, label: Submit
