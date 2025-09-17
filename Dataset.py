@@ -86,12 +86,13 @@ Rules:
 
 
 
+
 for i, prompt in enumerate(prompts, start=1):
-    file_path = os.path.join("prompts", f"prompt_{i}.txt")
+    file_path = os.path.join("prompts", f"{i}.txt")
     with open(file_path, "w") as f:
         f.write(prompt)
 
 for i, code in enumerate(codes,start=1):
-    file_path = os.path.join("Code", f"code_{i}.txt")
+    file_path = os.path.join("Code", f"{i}.txt")
     with open(file_path, "w") as f:
         f.write(code)
