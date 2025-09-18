@@ -4,7 +4,7 @@ import requests
 prompts = set()
 codes = []
 
-for i in range(100):
+for i in range(50):
     print(i)
     while True:
         PromptResponse = requests.post(
@@ -30,12 +30,13 @@ for i in range(100):
         }
         )
 
-        data = PromptResponse.json()
-        raw = data["response"]
-        raw = raw.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        
 
         import json
         try:
+            data = PromptResponse.json()
+            raw = data["response"]
+            raw = raw.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
             prompt_obj = json.loads(raw)   
             prompt = f" {prompt_obj['component']},  {prompt_obj['bg']},  {prompt_obj['special']}, label: {prompt_obj['label']}"
             if prompt not in prompts:
@@ -68,18 +69,19 @@ for i in range(100):
     try:
         CodeData = CodeResponse.json()
         Code = CodeData["response"]
+        Code = Code.strip().removeprefix("jsx").removeprefix("html").removeprefix("```json").removeprefix("```").removeprefix("```jsx").removesuffix("```").strip()
+        if("jsx" in Code):
+            Code = Code[3:].strip()
+            Code.replace("`","")
+
+        if("html" in Code):
+            Code = Code[4:].strip()
+
+        codes.append(Code)
+
     except:
         print("failed 2")
-    Code = Code.strip().removeprefix("jsx").removeprefix("html").removeprefix("```json").removeprefix("```").removeprefix("```jsx").removesuffix("```").strip()
 
-    if("jsx" in Code):
-        Code = Code[3:].strip()
-    Code.replace("`","")
-
-    if("html" in Code):
-        Code = Code[4:].strip()
-
-    codes.append(Code)
     print("->->->->->->")
     print(prompt)
     print("-----------")
@@ -89,11 +91,11 @@ PromptPath = os.path.join("Dataset", "prompts")
 CodePath = os.path.join("Dataset","Code")
 
 for i, prompt in enumerate(prompts, start=1):
-    file_path = os.path.join(PromptPath, f"{i}.txt")
+    file_path = os.path.join(PromptPath, f"{i+100}.txt")
     with open(file_path, "w") as f:
         f.write(prompt)
 
 for i, code in enumerate(codes,start=1):
-    file_path = os.path.join(CodePath, f"{i}.txt")
+    file_path = os.path.join(CodePath, f"{i+100}.txt")
     with open(file_path, "w") as f:
         f.write(code)
