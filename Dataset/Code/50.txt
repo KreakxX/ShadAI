@@ -1,1 +1,0 @@
-<button className="bg-green-500 hover:bg-green-600 transition-colors duration-300 focus:ring-green-500 focus:outline-none disabled:opacity-25 active:bg-green-700 disabled:bg-gray cursor-not-allowed border border-transparent rounded-full hover:border-blue-500 transition-colors duration-150" label="Click me">Click me</button>

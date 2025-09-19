@@ -1,1 +1,0 @@
-<button className="bg-blue-500 hover:bg-purple-600 rounded shadow-xl focus:ring-indigo-500 focus:outline-none disabled:opacity-25 cursor-not-allowed">{'Submit'}</button>

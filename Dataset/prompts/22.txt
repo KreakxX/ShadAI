@@ -1,1 +1,0 @@
- button,  bg-indigo-500 hover:bg-purple-600,  rounded border shadow-xl text-white mt-3 focus:outline-none disabled:opacity-25, label: Submit

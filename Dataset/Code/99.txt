@@ -1,1 +1,0 @@
-<button className="bg-purple-500 hover:bg-purple-600 focus:outline-indigo rounded border-2xl shadow-md">{`Click Me`}</button>

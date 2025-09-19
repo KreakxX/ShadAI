@@ -1,1 +1,0 @@
- button,  bg-blue-500 hover:bg-purple-700,  rounded-lg border-2 px-4 py-2 shadow-sm, label: Sign Up

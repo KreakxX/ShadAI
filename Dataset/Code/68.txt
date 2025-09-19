@@ -1,1 +1,0 @@
-<button className="bg-indigo-500 hover:bg-purple-600 focus:bg-blue-400 rounded border-2xl px-3 py-2.5 text-lg font-bold underline cursor-pointer transition duration-150ms ease-in-out shadow hover:-translateY-2 sm:shadow md:shadow lg:shadow xl:shadow">{`Submit`}</button>

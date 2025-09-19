@@ -1,1 +1,0 @@
-<button className="bg-indigo-500 text-white font-semibold py-2 px-4 rounded-full shadow-lg">Submit</button>

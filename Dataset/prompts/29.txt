@@ -1,1 +1,0 @@
- button,  red-700,  rounded-full shadow-xl, label: Subscribe

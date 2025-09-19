@@ -1,1 +1,0 @@
-<button className="bg-purple-500 rounded-full shadow-xl">Continue</button>

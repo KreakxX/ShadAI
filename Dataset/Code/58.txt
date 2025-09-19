@@ -1,1 +1,0 @@
-<button className="bg-purple-500 hover:bg-purple-600 focus:shadow-md transition-all rounded border-2xl">Submit</button>

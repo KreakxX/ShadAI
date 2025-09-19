@@ -1,1 +1,0 @@
- button,  red-500,  rounded-full, label: Submit

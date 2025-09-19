@@ -1,1 +1,0 @@
- button,  bg-indigo-500,  rounded-full shadow-lg hover:shadow-xl, label: Submit

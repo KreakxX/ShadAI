@@ -1,1 +1,0 @@
- button,  bg-blue-500,  rounded rounded-lg shadow-lg hover:bg-black, label: Connect

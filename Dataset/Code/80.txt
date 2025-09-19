@@ -1,1 +1,0 @@
-<button className="bg-yellow-400 rounded-full shadow-lg">Click me</button>

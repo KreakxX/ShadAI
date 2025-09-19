@@ -1,1 +1,0 @@
- button,  bg-purple-500,  rounded, label: Continue

@@ -1,1 +1,0 @@
- button,  bg-yellow-400,  rounded-full shadow-lg, label: Click me

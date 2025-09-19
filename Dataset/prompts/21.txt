@@ -1,1 +1,0 @@
- button,  bg-purple-500,  rounded rounded-lg shadow-xl hover:bg-deepPurple-700 transition duration-300 ease-in-out, label: Sign In

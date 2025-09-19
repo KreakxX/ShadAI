@@ -1,1 +1,0 @@
-<button className="bg-blue-500 hover:bg-gray-600 transition-all border-2xl rounded shadow-md text-white font-semibold py-2 px-4">Click Me</button>
