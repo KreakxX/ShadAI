@@ -1,10 +1,20 @@
 import os
+import random
 
 colors = [
     "red", "blue", "green", "yellow", "purple", "pink", "indigo", "gray", "slate", "stone",
     "zinc", "neutral", "orange", "amber", "lime", "emerald", "teal", "cyan", "sky", "violet",
     "fuchsia", "rose", "black", "white"
 ]
+
+prompt_templates = [
+    "button, bg-{color}-{intensity}, {special}, text-{color}-{intensity}, label: {label}",
+    "Make a {special} {color}-{intensity} button with text-{color}-{intensity} and the label '{label}'",
+    "Generate a button labeled '{label}' styled with bg-{color}-{intensity} and {special}",
+    "Create a {special} button with bg-{color}-{intensity}, text-{color}-{intensity}, and label '{label}'",
+    "A button saying '{label}' using {special}, bg-{color}-{intensity}, and text-{color}-{intensity}"
+]
+
 labels = [
     "Sign Up", "Log In", "Submit", "Cancel", "OK", "Next", "Back", "Continue", "Start", "Stop",
     "Download", "Upload", "Save", "Delete", "Edit", "View", "Share", "Like", "Dislike", "Comment",
@@ -21,7 +31,7 @@ intensities = [
     "50", "100", "200", "300", "400", "500", "600", "700", "800", "900"
 ]
 
-special = [
+specials = [
     "rounded-sm", "rounded", "rounded-md", "rounded-lg", "rounded-xl", "rounded-2xl", "rounded-full",
 
     "border", "border-2", "border-4", "border-0", "border-dashed", "border-dotted", "border-double",
@@ -35,32 +45,31 @@ special = [
 
     "shadow-sm", "shadow", "shadow-md", "shadow-lg", "shadow-xl",
 
-    "uppercase", "lowercase", "capitalize", "tracking-wide", "font-bold", "font-semibold", "font-medium"
+    "font-bold", "font-semibold", "text-lg", "text-xl", "text-2xl", "text-3xl", "text-sm"
 ]
+
 
 prompts = []
 codes = []
 
-
+i = 0
 for color in colors:
     for intensity in intensities:
         for label in labels:
-            for special in special:
-                prompt = f"button, bg-{color}-{intensity}, {special}, label: {label} "
-                code = f'<Button classname="bg-{color}-{intensity} {special}">{label}</Button>'
-                prompts.append(prompt)
-                codes.append(code)
+            for special in specials:
+                if i >= 200_000:
+                    break
+                template = random.choice(prompt_templates)
+                prompt = template.format(color=color, intensity=intensity, label=label, special=special)
+                code = f'<Button classname="bg-{color}-{intensity} text-{color}-{intensity} {special}">{label}</Button>'
+                with open("Dataset/code.txt", "a") as f:
+                    f.write(prompt + "\n")
+
+                with open("Dataset/prompts.txt", "a") as f:
+                    f.write(code + "\n")
+
+                i += 1
 
 
-PromptPath = os.path.join("Dataset", "prompts")
-CodePath = os.path.join("Dataset","Code")
+ 
 
-for i, prompt in enumerate(prompts, start=1):
-    file_path = os.path.join(PromptPath, f"{i}.txt")
-    with open(file_path, "w") as f:
-        f.write(prompt)
-
-for i, code in enumerate(codes,start=1):
-    file_path = os.path.join(CodePath, f"{i}.txt")
-    with open(file_path, "w") as f:
-        f.write(code)
