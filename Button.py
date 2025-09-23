@@ -64,134 +64,120 @@ colorMap = {
     "Dark Rose": "rose-700",
 }
 
-prompt_templates = [
+simple_templates = [
     "{color_name} button {label}",
     "{color_name} btn {label}",
     "{label} button {color_name}",
     "{color_name} {label} btn",
+    "btn {label}",
+    "button {label}",
+    "{label} btn",
+    "{label} button",
     "{color_name} button '{label}'",
     "{color_name} '{label}' button",
-    
+    "{color_name} {label}",
+    "{label} {color_name}",
+    "{color_name} element {label}",
+    "{label} in {color_name}",
+    "{color_name} styled {label}",
+    "{color_name} {label} element",
+    "{label} {color_name} btn",
+    "{color_name} UI {label}",
+    "{label} {color_name} component",
+    "{color_name} clickable {label}",
+    "{label} styled {color_name}",
+    "{color_name} interactive {label}",
+    "{label} control {color_name}",
+    "{color_name} action {label}",
+    "{label} trigger {color_name}",
+]
+
+medium_templates = [
     "Make a {color_name} button with '{label}'",
     "Create a {color_name} button that says '{label}'",
     "Generate a {color_name} button labeled '{label}'",
     "Build a {color_name} '{label}' button",
     "Design a {color_name} button showing '{label}'",
-    "Make a {color_name} '{label}' button",
-    "Create {color_name} button '{label}'",
-    "Generate {color_name} '{label}' button",
-    
-    "Make a {color_name} button with '{label}' and {special} styling",
-    "Create a {color_name} button that says '{label}' with {special}",
-    "Generate a {color_name} button labeled '{label}' using {special}",
-    "Build a {color_name} '{label}' button with {special} style",
-    "Design a {color_name} button showing '{label}' and {special}",
-    "{color_name} button {label} with {special}",
-    "{color_name} btn {label} {special}",
-    "{special} {color_name} button {label}",
-    
     "I need a {color_name} button with '{label}' text",
     "Can you create a {color_name} button that displays '{label}'?",
     "Please make a {color_name} button saying '{label}'",
-    "Show me a {color_name} button with '{label}' label",
-    "Give me a {color_name} '{label}' button",
-    "I want a {color_name} button that says '{label}'",
-    "Let me have a {color_name} button for '{label}'",
-    
-    "I need a {color_name} button with '{label}' and {special} styling",
-    "Can you create a {color_name} button that displays '{label}' and has {special}?",
-    "Please make a {color_name} button saying '{label}' with {special} effects",
-    "Show me a {color_name} button with '{label}' label and {special} style",
-    "Give me a {color_name} '{label}' button with {special}",
-    "I want a {color_name} button that says '{label}' and looks {special}",
-    "Let me have a {color_name} button for '{label}' with {special}",
-    
     "A {color_name} button labeled '{label}'",
     "A {color_name} '{label}' button",
     "Button in {color_name} with '{label}' text",
-    "Button '{label}' in {color_name}",
-    "Button saying '{label}' in {color_name}",
-    "{color_name} colored button with '{label}'",
-    "{color_name} colored '{label}' button",
-    
-    "A {special} {color_name} button labeled '{label}'",
-    "A {special} {color_name} '{label}' button",
-    "Button in {color_name} with '{label}' text and {special}",
-    "Button '{label}' in {color_name} with {special} styling",
-    "Button saying '{label}' in {color_name} using {special}",
-    "{special} {color_name} colored button with '{label}'",
-    "{special} {color_name} colored '{label}' button",
-    
-    "btn {label}",
-    "button {label}",
-    "{label} btn",
-    "{label} button",
-    "btn {label} {special}",
-    "button {label} {special}",
-    "{label} btn {special}",
-    "{label} button {special}",
-    
-    "Button component with {color_name} color and '{label}' text",
-    "Render {color_name} button with '{label}' label",
-    "Button element in {color_name} showing '{label}'",
-    "{color_name} button component displaying '{label}'",
-    "Button with {color_name} background and '{label}' content",
-    
-    "Button component with {color_name} color, '{label}' text, and {special}",
-    "Render {color_name} button with '{label}' label and {special} styling",
-    "Button element in {color_name} showing '{label}' with {special}",
-    "{color_name} button component displaying '{label}' using {special}",
-    "Button with {color_name} background, '{label}' content, and {special}",
-    
     "Add a {color_name} '{label}' button",
     "Insert {color_name} button '{label}'",
-    "Place a {color_name} '{label}' button",
-    "Put a {color_name} button saying '{label}'",
-    "Create {color_name} button for '{label}'",
-    
+    "Show me a {color_name} button for '{label}'",
+    "Give me a {color_name} '{label}' element",
+    "Render {color_name} button with '{label}'",
+    "Display {color_name} '{label}' button",
+    "Create {color_name} element for '{label}'",
+    "Make {color_name} component saying '{label}'",
+    "Generate {color_name} UI element '{label}'",
+    "Develop a {color_name} button containing '{label}'",
+    "Construct {color_name} '{label}' control",
+    "Produce a {color_name} clickable '{label}' item",
+    "Craft {color_name} interactive button '{label}'",
+    "Build {color_name} UI control for '{label}'",
+    "Generate {color_name} action button '{label}'",
+    "Create clickable {color_name} '{label}' element",
+    "Design interactive {color_name} button '{label}'",
+    "Make {color_name} trigger element '{label}'",
+    "Develop {color_name} interface button '{label}'",
+    "Construct a {color_name} '{label}' interface",
+    "Generate {color_name} user control '{label}'",
+    "Build functional {color_name} button '{label}'",
+    "Create responsive {color_name} '{label}' button",
+    "Design modern {color_name} button '{label}'",
+    "Generate styled {color_name} '{label}' control",
+    "Make interactive {color_name} '{label}' component",
+    "Create dynamic {color_name} button '{label}'",
+    "Build elegant {color_name} '{label}' button",
+    "Design sleek {color_name} button '{label}'",
+]
+
+complex_templates = [
+    "Make a {color_name} button with '{label}' and {special} styling",
+    "Create a {color_name} button that says '{label}' with {special}",
+    "Generate a {color_name} button labeled '{label}' using {special}",
+    "I need a {color_name} button with '{label}' and {special} styling",
+    "Can you create a {color_name} button that displays '{label}' and has {special}?",
+    "Please make a {color_name} button saying '{label}' with {special} effects",
+    "A {special} {color_name} button labeled '{label}'",
+    "Button component with {color_name} color, '{label}' text, and {special}",
     "Add a {color_name} '{label}' button with {special}",
-    "Insert {color_name} button '{label}' styled with {special}",
-    "Place a {color_name} '{label}' button using {special}",
-    "Put a {color_name} button saying '{label}' with {special} design",
-    "Create {color_name} button for '{label}' with {special} styling",
-    
-    "How about a {color_name} '{label}' button?",
-    "What about a {color_name} button for '{label}'?",
-    "Could you make a {color_name} '{label}' button?",
-    "Can I get a {color_name} button with '{label}'?",
-    "Would you create a {color_name} '{label}' button?",
-    
     "How about a {color_name} '{label}' button with {special}?",
-    "What about a {color_name} button for '{label}' using {special}?",
-    "Could you make a {color_name} '{label}' button with {special}?",
-    "Can I get a {color_name} button with '{label}' and {special} styling?",
-    "Would you create a {color_name} '{label}' button using {special}?",
-    
-    "Erstelle einen {color_name} Button mit '{label}'",
-    "Mach einen {color_name} '{label}' Button",
-    "Generiere {color_name} Button '{label}'",
-    "{color_name} Button mit '{label}' Text",
-    "{color_name} '{label}' Button",
-    "Button in {color_name} mit '{label}'",
-    
     "Erstelle einen {color_name} Button mit '{label}' und {special}",
-    "Mach einen {color_name} '{label}' Button mit {special}",
+    "Design a {special} {color_name} element for '{label}'",
+    "Build {color_name} button '{label}' featuring {special}",
+    "Create styled {color_name} button with '{label}' using {special}",
+    "Generate {special} styled {color_name} '{label}' button",
+    "Make {color_name} component '{label}' with {special} design",
+    "Show {special} {color_name} button displaying '{label}'",
+    "Render {color_name} '{label}' element with {special}",
+    "Develop a {special} {color_name} button containing '{label}'",
+    "Construct {special} {color_name} '{label}' control with styling",
+    "Produce a {color_name} button '{label}' featuring {special} design",
+    "Craft {special} interactive {color_name} button '{label}'",
+    "Build {color_name} UI control '{label}' with {special} appearance",
+    "Generate {special} {color_name} action button '{label}'",
+    "Create {color_name} clickable '{label}' element with {special}",
+    "Design {special} interactive {color_name} button '{label}'",
+    "Make {color_name} trigger element '{label}' using {special}",
+    "Develop {special} {color_name} interface button '{label}'",
+    "Construct a {color_name} '{label}' interface with {special}",
+    "Generate {special} {color_name} user control '{label}'",
+    "Build functional {color_name} button '{label}' featuring {special}",
+    "Create responsive {color_name} '{label}' button with {special}",
+    "Design modern {special} {color_name} button '{label}'",
+    "Generate styled {color_name} '{label}' control using {special}",
+    "Make interactive {special} {color_name} '{label}' component",
+    "Create dynamic {color_name} button '{label}' with {special}",
+    "Build elegant {special} {color_name} '{label}' button",
+    "Design sleek {color_name} button '{label}' featuring {special}",
+    "Mach einen {special} {color_name} Button für '{label}'",
     "Generiere {color_name} Button '{label}' mit {special} Stil",
-    "{color_name} Button mit '{label}' Text und {special}",
-    "{color_name} '{label}' Button mit {special}",
-    "Button in {color_name} mit '{label}' und {special}",
-    
-    "'{label}' button in {color_name}",
-    "Button '{label}' styled as {color_name}",
-    "'{label}' in {color_name} button",
-    "Button labeled '{label}' in {color_name}",
-    "'{label}' {color_name} button",
-    
-    "'{label}' button in {color_name} with {special}",
-    "Button '{label}' styled as {color_name} {special}",
-    "'{label}' in {color_name} button with {special}",
-    "Button labeled '{label}' in {color_name} using {special}",
-    "'{label}' {color_name} button with {special}",
+    "Baue einen {special} {color_name} '{label}' Button",
+    "Erstelle {color_name} Element '{label}' mit {special}",
 ]
 
 labels = [
@@ -206,43 +192,101 @@ labels = [
     "Watch", "Listen", "Play", "Pause", "Stop", "Record", "Forward", "Rewind", "Skip", "Shuffle",
     "Like Post", "Follow", "Unfollow", "Add Friend", "Remove Friend", "Message", "Reply", "Forward", "Quote", "Copy Link",
     "Add to Cart", "Checkout", "Login", "Logout", "Home", "About", "Contact Us", "Learn More", "Subscribe Now", "Free Trial",
-    "Buy Now", "Get Quote", "Call Now", "Email Us", "Schedule", "Book Appointment", "Try Free", "Demo", "Tour"
+    "Buy Now", "Get Quote", "Call Now", "Email Us", "Schedule", "Book Appointment", "Try Free", "Demo", "Tour",
+    "Get Started", "Learn More", "Try Now", "Book Demo", "Free Quote", "Contact", "Support", "Feedback",
+    "Purchase", "Upgrade Now", "Go Premium", "Subscribe", "Join Now", "Register", "Sign In", "Dashboard",
+    "Activate", "Deactivate", "Approve", "Reject", "Publish", "Draft", "Archive", "Restore", "Backup", "Sync",
+    "Export", "Import", "Copy", "Paste", "Cut", "Undo", "Redo", "Find", "Replace", "Sort",
+    "Merge", "Split", "Combine", "Separate", "Group", "Ungroup", "Lock", "Unlock", "Pin", "Unpin",
+    "Mark as Read", "Mark as Unread", "Star", "Unstar", "Flag", "Unflag", "Hide", "Show", "Collapse", "Expand",
+    "Maximize", "Minimize", "Fullscreen", "Exit", "Zoom In", "Zoom Out", "Reset Zoom", "Fit to Screen", "Center", "Align",
+    "Bold", "Italic", "Underline", "Strike", "Highlight", "Clear Format", "Font Size", "Font Color", "Background", "Border",
+    "Insert", "Remove", "Move Up", "Move Down", "First", "Last", "Previous", "Random", "Shuffle", "Repeat",
+    "Connect", "Disconnect", "Link", "Unlink", "Attach", "Detach", "Mount", "Unmount", "Load", "Unload",
+    "Begin", "End", "Launch", "Terminate", "Execute", "Run", "Compile", "Build", "Deploy", "Test",
+    "Debug", "Profile", "Monitor", "Track", "Analyze", "Report", "Log", "Audit", "Verify", "Validate",
+    "Configure", "Setup", "Initialize", "Reset", "Restore", "Factory Reset", "Calibrate", "Optimize", "Enhance", "Improve"
 ]
 
 intensities = [
     "50", "100", "200", "300", "400", "500", "600", "700", "800", "900"
 ]
 
-specials = [
-    "rounded-sm", "rounded-md", "rounded-lg", "rounded-xl", "rounded-2xl", "rounded-full",
-    "border", "border-2", "border-4", "border-dashed", "border-dotted", "border-double",
-    "px-2 py-1", "px-3 py-2", "px-4 py-2", "px-6 py-3", "px-8 py-4",
-    "hover:bg-opacity-80", "hover:opacity-75", "hover:underline", "active:scale-95",
-    "focus:outline-none", "focus:ring-2", "focus:ring-4", "focus:ring-offset-2",
-    "disabled:opacity-50", "disabled:cursor-not-allowed",
-    "shadow-sm", "shadow", "shadow-md", "shadow-lg", "shadow-xl",
-    "font-bold", "font-semibold", "text-lg", "text-xl", "text-2xl", "text-3xl", "text-sm",
-    "uppercase", "lowercase", "capitalize", "italic", "underline",
-    "transition-colors", "transition-all", "duration-200", "duration-300", "ease-in-out",
-    "cursor-pointer", "w-full", "w-auto", "min-w-fit", "flex items-center justify-center"
+basic_specials = [
+    "px-4 py-2", "px-3 py-2", "rounded", "rounded-md", "shadow", "border",
+    "px-2 py-1", "px-6 py-2", "rounded-sm", "shadow-sm"
 ]
 
-# Dataset-Ordner erstellen falls nicht vorhanden
+intermediate_specials = [
+    "rounded-lg", "rounded-xl", "shadow-md", "px-6 py-3", "font-semibold", 
+    "border-2", "hover:opacity-75", "transition-colors", "font-medium",
+    "text-sm", "shadow-lg", "px-8 py-2"
+]
+
+advanced_specials = [
+    "rounded-2xl", "rounded-full", "shadow-lg", "shadow-xl", "px-8 py-4",
+    "font-bold", "text-lg", "hover:bg-opacity-80", "active:scale-95",
+    "focus:ring-2", "transition-all", "duration-300", "ease-in-out",
+    "border-dashed", "uppercase", "w-full", "text-xl", "font-black",
+    "border-4", "hover:shadow-xl", "transform", "cursor-pointer",
+    "text-2xl", "font-extrabold", "border-dotted", "border-double",
+    "hover:scale-105", "active:translate-y-1", "focus:ring-4", "focus:ring-offset-2",
+    "disabled:opacity-50", "disabled:cursor-not-allowed", "hover:rotate-1",
+    "bg-gradient-to-r", "from-current", "to-transparent", "backdrop-blur",
+    "ring-2", "ring-offset-2", "ring-opacity-50", "shadow-2xl",
+    "text-3xl", "tracking-wider", "leading-tight", "whitespace-nowrap",
+    "overflow-hidden", "text-ellipsis", "min-w-0", "max-w-xs"
+]
+
+def get_styling_for_template_complexity(template_type, variation_seed):
+    """Enhanced styling generation with more variety"""
+    random.seed(variation_seed)  
+    
+    if template_type == "simple":
+        options = basic_specials
+        count = 1
+    elif template_type == "medium":
+        options = basic_specials + intermediate_specials
+        count = random.randint(1, 2)
+    else:  
+        options = basic_specials + intermediate_specials + advanced_specials
+        count = random.randint(2, 4)
+    
+    return " ".join(random.sample(options, k=min(count, len(options))))
+
+prompts_set = set()
+codes_set = set()
+prompts_list = []
+codes_list = []
+
 os.makedirs("Buttons", exist_ok=True)
 
-with open("Buttons/code.txt", "w", encoding="utf-8") as f:
-    pass
-with open("Buttons/prompts.txt", "w", encoding="utf-8") as f:
-    pass
+target_samples = 1_000_000
+attempts = 0
+max_attempts = target_samples * 3  
 
-for i in range(1_000_000):
-    use_map = random.choice([True, False])
+
+while len(prompts_list) < target_samples and attempts < max_attempts:
+    attempts += 1
     
+    template_type = random.choices(
+        ["simple", "medium", "complex"], 
+        weights=[30, 40, 30]  
+    )[0]
+    
+    if template_type == "simple":
+        template = random.choice(simple_templates)
+    elif template_type == "medium":
+        template = random.choice(medium_templates)
+    else:
+        template = random.choice(complex_templates)
+    
+    use_map = random.choice([True, False])
     if use_map:
         color_key = random.choice(list(colorMap.keys()))
         color_class = colorMap[color_key]
         color, intensity = color_class.split("-")
-        color_name = color_key  
+        color_name = color_key
     else:
         color = random.choice(colors)
         intensity = random.choice(intensities)
@@ -254,21 +298,21 @@ for i in range(1_000_000):
             color_name = color.capitalize()
     
     label = random.choice(labels)
-    chosen_specials = " ".join(random.sample(specials, k=random.randint(1, 4)))
-    template = random.choice(prompt_templates)
+    
+    chosen_specials = get_styling_for_template_complexity(template_type, attempts)
     
     try:
         prompt = template.format(
-            color=color, 
-            intensity=intensity, 
-            label=label, 
+            color=color,
+            intensity=intensity,
+            label=label,
             special=chosen_specials,
             color_name=color_name
         )
-    except KeyError as e:
+    except KeyError:
         available_vars = {
             'color': color,
-            'intensity': intensity, 
+            'intensity': intensity,
             'label': label,
             'special': chosen_specials,
             'color_name': color_name
@@ -280,8 +324,17 @@ for i in range(1_000_000):
     
     code = f'<Button className="bg-{color}-{intensity} {chosen_specials}">{label}</Button>'
     
-    with open("Buttons/code.txt", "a") as f:
-        f.write(code + "\n")
+    if prompt not in prompts_set and code not in codes_set:
+        prompts_set.add(prompt)
+        codes_set.add(code)
+        prompts_list.append(prompt)
+        codes_list.append(code)
+        
     
-    with open("Buttons/prompts.txt", "a") as f:
+with open("Buttons/code.txt", "w", encoding="utf-8") as f:
+    for code in codes_list:
+        f.write(code + "\n")
+
+with open("Buttons/prompts.txt", "w", encoding="utf-8") as f:
+    for prompt in prompts_list:
         f.write(prompt + "\n")
