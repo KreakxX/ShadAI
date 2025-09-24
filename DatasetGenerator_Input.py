@@ -67,30 +67,11 @@ colorMap = {
 
 simple_templates = [
     "{color_name} Input {label}",
-    "{color_name} btn {label}",
     "{label} Input {color_name}",
-    "{color_name} {label} btn",
-    "btn {label}",
     "Input {label}",
-    "{label} btn",
     "{label} Input",
     "{color_name} Input '{label}'",
     "{color_name} '{label}' Input",
-    "{color_name} {label}",
-    "{label} {color_name}",
-    "{color_name} element {label}",
-    "{label} in {color_name}",
-    "{color_name} styled {label}",
-    "{color_name} {label} element",
-    "{label} {color_name} btn",
-    "{color_name} UI {label}",
-    "{label} {color_name} component",
-    "{color_name} clickable {label}",
-    "{label} styled {color_name}",
-    "{color_name} interactive {label}",
-    "{label} control {color_name}",
-    "{color_name} action {label}",
-    "{label} trigger {color_name}",
 ]
 
 medium_templates = [
@@ -112,17 +93,13 @@ medium_templates = [
     "Render {color_name} Input with '{label}'",
     "Display {color_name} '{label}' Input",
     "Create {color_name} element for '{label}'",
-    "Make {color_name} component saying '{label}'",
-    "Generate {color_name} UI element '{label}'",
+    "Make {color_name} Input field saying '{label}'",
+    "Generate {color_name} text field element '{label}'",
     "Develop a {color_name} Input containing '{label}'",
-    "Construct {color_name} '{label}' control",
-    "Produce a {color_name} clickable '{label}' item",
     "Craft {color_name} interactive Input '{label}'",
-    "Build {color_name} UI control for '{label}'",
+    "Build {color_name} UI Input for '{label}'",
     "Generate {color_name} action Input '{label}'",
-    "Create clickable {color_name} '{label}' element",
     "Design interactive {color_name} Input '{label}'",
-    "Make {color_name} trigger element '{label}'",
     "Develop {color_name} interface Input '{label}'",
     "Construct a {color_name} '{label}' interface",
     "Generate {color_name} user control '{label}'",
@@ -202,36 +179,7 @@ complex_templates = [
 ]
 
 labels = [
-    "Sign Up", "Log In", "Submit", "Cancel", "OK", "Next", "Back", "Continue", "Start", "Stop",
-    "Download", "Upload", "Save", "Delete", "Edit", "View", "Share", "Like", "Dislike", "Comment",
-    "Retry", "Refresh", "Search", "Filter", "Apply", "Reset", "Confirm", "Decline", "Yes", "No",
-    "Accept", "Deny", "Allow", "Block", "Send", "Receive", "Buy", "Sell", "Order", "Pay",
-    "Subscribe", "Unsubscribe", "Register", "Join", "Leave", "Close", "Open", "Details", "More", "Less",
-    "Settings", "Options", "Help", "Info", "Contact", "Support", "Report", "Download PDF", "Print", "Preview",
-    "Upload File", "Choose File", "Select", "Deselect", "Enable", "Disable", "Start Free Trial", "Get Started", "Upgrade", "Downgrade",
-    "Book Now", "Reserve", "Check In", "Check Out", "Continue as Guest", "Try Again", "Proceed", "Finish", "Install", "Update",
-    "Watch", "Listen", "Play", "Pause", "Stop", "Record", "Forward", "Rewind", "Skip", "Shuffle",
-    "Like Post", "Follow", "Unfollow", "Add Friend", "Remove Friend", "Message", "Reply", "Forward", "Quote", "Copy Link",
-    "Add to Cart", "Checkout", "Login", "Logout", "Home", "About", "Contact Us", "Learn More", "Subscribe Now", "Free Trial",
-    "Buy Now", "Get Quote", "Call Now", "Email Us", "Schedule", "Book Appointment", "Try Free", "Demo", "Tour",
-    "Get Started", "Learn More", "Try Now", "Book Demo", "Free Quote", "Contact", "Support", "Feedback",
-    "Purchase", "Upgrade Now", "Go Premium", "Subscribe", "Join Now", "Register", "Sign In", "Dashboard",
-    "Activate", "Deactivate", "Approve", "Reject", "Publish", "Draft", "Archive", "Restore", "Backup", "Sync",
-    "Export", "Import", "Copy", "Paste", "Cut", "Undo", "Redo", "Find", "Replace", "Sort",
-    "Merge", "Split", "Combine", "Separate", "Group", "Ungroup", "Lock", "Unlock", "Pin", "Unpin",
-    "Mark as Read", "Mark as Unread", "Star", "Unstar", "Flag", "Unflag", "Hide", "Show", "Collapse", "Expand",
-    "Maximize", "Minimize", "Fullscreen", "Exit", "Zoom In", "Zoom Out", "Reset Zoom", "Fit to Screen", "Center", "Align",
-    "Bold", "Italic", "Underline", "Strike", "Highlight", "Clear Format", "Font Size", "Font Color", "Background", "Border",
-    "Insert", "Remove", "Move Up", "Move Down", "First", "Last", "Previous", "Random", "Shuffle", "Repeat",
-    "Connect", "Disconnect", "Link", "Unlink", "Attach", "Detach", "Mount", "Unmount", "Load", "Unload",
-    "Begin", "End", "Launch", "Terminate", "Execute", "Run", "Compile", "Build", "Deploy", "Test",
-    "Debug", "Profile", "Monitor", "Track", "Analyze", "Report", "Log", "Audit", "Verify", "Validate",
-    "Configure", "Setup", "Initialize", "Reset", "Restore", "Factory Reset", "Calibrate", "Optimize", "Enhance", "Improve",
-      "Jan", "Max", "Anna", "Lisa", "Tom", "Sarah", "Mike", "Emma", 
-    "Alex", "Nina", "Ben", "Lea", "Tim", "Mia", "Paul", "Lara",
-    "Chris", "Eva", "Sam", "Nora", "Luke", "Ava", "Dan", "Zoe",
-    "Felix", "Ruby", "Noah", "Cora", "Leon", "Maya", "Oliver", "Ivy",
-    "Sebastian", "Julia", "Maximilian", "Sophie", "Alexander", "Marie"
+    "Your Prompt goes here", "Enter username", "Enter password"
 
 ]
 
@@ -320,7 +268,7 @@ prompts_list = []
 codes_list = []
 
 
-target_samples = 2_500_000
+target_samples = 500_000
 attempts = 0
 max_attempts = target_samples * 3  
 
@@ -390,10 +338,10 @@ while len(prompts_list) < target_samples and attempts < max_attempts:
         codes_list.append(code)
         
     
-with open("Input_Dataset_2_5m/code.txt", "w", encoding="utf-8") as f:
+with open("Input_Dataset_500k/code.txt", "w", encoding="utf-8") as f:
     for code in codes_list:
         f.write(code + "\n")
 
-with open("Input_Dataset_2_5m/prompts.txt", "w", encoding="utf-8") as f:
+with open("Input_Dataset_500k/prompts.txt", "w", encoding="utf-8") as f:
     for prompt in prompts_list:
         f.write(prompt + "\n")
