@@ -7,6 +7,7 @@ colors = [
     "fuchsia", "rose"
 ]
 
+
 colorMap = {
     "Red": "red-500",
     "Light Red": "red-300",
@@ -133,6 +134,16 @@ medium_templates = [
     "Create dynamic {color_name} button '{label}'",
     "Build elegant {color_name} '{label}' button",
     "Design sleek {color_name} button '{label}'",
+    "Set up a {color_name} button reading '{label}'",
+    "Create button: {color_name} with text '{label}'",
+    "New {color_name} button: '{label}'",
+    "Quick {color_name} button with '{label}'",
+    "{color_name} button implementation for '{label}'",
+    "Simple {color_name} button: '{label}'",
+    "Basic {color_name} button with text '{label}'",
+    "{color_name} button - '{label}' text",
+    "Add {color_name} button, text: '{label}'",
+    "Include {color_name} button saying '{label}'"
 ]
 
 complex_templates = [
@@ -178,6 +189,16 @@ complex_templates = [
     "Generiere {color_name} Button '{label}' mit {special} Stil",
     "Baue einen {special} {color_name} '{label}' Button",
     "Erstelle {color_name} Element '{label}' mit {special}",
+     "Design {color_name} button '{label}' with {special} and rounded corners",
+    "{color_name} button '{label}' using {special} plus shadow",
+    "Custom {color_name} button '{label}' with {special} styling",
+    "Advanced {color_name} button '{label}' featuring {special}",
+    "{color_name} button '{label}' styled with {special} effects",
+    "Professional {color_name} button '{label}' with {special}",
+    "Modern {color_name} button '{label}' using {special} design",
+    "{color_name} '{label}' button with {special} animation",
+    "Enhanced {color_name} button '{label}' with {special}",
+    "Stylized {color_name} '{label}' using {special}"
 ]
 
 labels = [
@@ -205,7 +226,13 @@ labels = [
     "Connect", "Disconnect", "Link", "Unlink", "Attach", "Detach", "Mount", "Unmount", "Load", "Unload",
     "Begin", "End", "Launch", "Terminate", "Execute", "Run", "Compile", "Build", "Deploy", "Test",
     "Debug", "Profile", "Monitor", "Track", "Analyze", "Report", "Log", "Audit", "Verify", "Validate",
-    "Configure", "Setup", "Initialize", "Reset", "Restore", "Factory Reset", "Calibrate", "Optimize", "Enhance", "Improve"
+    "Configure", "Setup", "Initialize", "Reset", "Restore", "Factory Reset", "Calibrate", "Optimize", "Enhance", "Improve",
+      "Jan", "Max", "Anna", "Lisa", "Tom", "Sarah", "Mike", "Emma", 
+    "Alex", "Nina", "Ben", "Lea", "Tim", "Mia", "Paul", "Lara",
+    "Chris", "Eva", "Sam", "Nora", "Luke", "Ava", "Dan", "Zoe",
+    "Felix", "Ruby", "Noah", "Cora", "Leon", "Maya", "Oliver", "Ivy",
+    "Sebastian", "Julia", "Maximilian", "Sophie", "Alexander", "Marie"
+
 ]
 
 intensities = [
@@ -235,11 +262,44 @@ advanced_specials = [
     "bg-gradient-to-r", "from-current", "to-transparent", "backdrop-blur",
     "ring-2", "ring-offset-2", "ring-opacity-50", "shadow-2xl",
     "text-3xl", "tracking-wider", "leading-tight", "whitespace-nowrap",
-    "overflow-hidden", "text-ellipsis", "min-w-0", "max-w-xs"
+    "overflow-hidden", "text-ellipsis", "min-w-0", "max-w-xs",
+     "hover:bg-opacity-90 active:bg-opacity-100",
+    "transform hover:-translate-y-0.5",
+    "transition-shadow hover:shadow-lg",
+    "focus:outline-none focus:ring",
+    "hover:brightness-110 active:brightness-90",
+    "group-hover:scale-105",
+    "motion-safe:hover:scale-110",
+    "active:shadow-inner",
+    "disabled:grayscale",
+    "hover:contrast-125"
 ]
+def consolidate_styles(styles_list):
+    """Prevent duplicate or conflicting styles."""
+    styles = styles_list.split()
+    
+    exclusive_groups = {
+        'padding': [s for s in styles if s.startswith(('px-', 'py-'))],
+        'rounded': [s for s in styles if s.startswith('rounded')],
+        'shadow': [s for s in styles if s.startswith('shadow')],
+        'border': [s for s in styles if s.startswith('border')],
+        'font': [s for s in styles if s.startswith('font')],
+        'text': [s for s in styles if s.startswith('text-')]
+    }
+    
+    final_styles = set()
+    for group in exclusive_groups.values():
+        if group:
+            final_styles.add(group[-1])
+    
+    other_styles = [s for s in styles if not any(
+        s in group for group in exclusive_groups.values()
+    )]
+    final_styles.update(other_styles)
+    
+    return ' '.join(sorted(final_styles))
 
 def get_styling_for_template_complexity(template_type, variation_seed):
-    """Enhanced styling generation with more variety"""
     random.seed(variation_seed)  
     
     if template_type == "simple":
@@ -251,17 +311,16 @@ def get_styling_for_template_complexity(template_type, variation_seed):
     else:  
         options = basic_specials + intermediate_specials + advanced_specials
         count = random.randint(2, 4)
-    
-    return " ".join(random.sample(options, k=min(count, len(options))))
+    raw_styles = ' '.join(random.sample(options, k=min(count, len(options))))
+    return consolidate_styles(raw_styles)
 
 prompts_set = set()
 codes_set = set()
 prompts_list = []
 codes_list = []
 
-os.makedirs("Buttons", exist_ok=True)
 
-target_samples = 1_000_000
+target_samples = 2_500_000
 attempts = 0
 max_attempts = target_samples * 3  
 
@@ -271,7 +330,7 @@ while len(prompts_list) < target_samples and attempts < max_attempts:
     
     template_type = random.choices(
         ["simple", "medium", "complex"], 
-        weights=[30, 40, 30]  
+        weights=[20, 45, 35]  
     )[0]
     
     if template_type == "simple":
@@ -290,9 +349,9 @@ while len(prompts_list) < target_samples and attempts < max_attempts:
     else:
         color = random.choice(colors)
         intensity = random.choice(intensities)
-        if intensity in ["50", "100", "200", "300"]:
+        if intensity in ["200", "300", "400", "500"]:
             color_name = f"Light {color.capitalize()}"
-        elif intensity in ["700", "800", "900"]:
+        elif intensity in ["800", "900","950"]:
             color_name = f"Dark {color.capitalize()}"
         else:
             color_name = color.capitalize()
@@ -322,7 +381,7 @@ while len(prompts_list) < target_samples and attempts < max_attempts:
         format_dict = {var: available_vars[var] for var in template_vars if var in available_vars}
         prompt = template.format(**format_dict)
     
-    code = f'<Button className="bg-{color}-{intensity} {chosen_specials}">{label}</Button>'
+    code = f'<Button className="bg-{color}-{intensity} {consolidate_styles(chosen_specials)}">{label}</Button>'
     
     if prompt not in prompts_set and code not in codes_set:
         prompts_set.add(prompt)
@@ -331,10 +390,10 @@ while len(prompts_list) < target_samples and attempts < max_attempts:
         codes_list.append(code)
         
     
-with open("Buttons/code.txt", "w", encoding="utf-8") as f:
+with open("Button_Dataset_2_5m/code.txt", "w", encoding="utf-8") as f:
     for code in codes_list:
         f.write(code + "\n")
 
-with open("Buttons/prompts.txt", "w", encoding="utf-8") as f:
+with open("Button_Dataset_2_5m/prompts.txt", "w", encoding="utf-8") as f:
     for prompt in prompts_list:
         f.write(prompt + "\n")
