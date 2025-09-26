@@ -6,7 +6,8 @@ import numpy as np
 import pickle
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
-
+from keras import mixed_precision
+import tensorflow as tf
 app.add_middleware(
     CORSMiddleware,
     allow_origins="*",           
@@ -14,19 +15,30 @@ app.add_middleware(
     allow_methods=["*"],             
     allow_headers=["*"],             
 )
- 
+print(tf.config.list_physical_devices('GPU'))
+
+policy = mixed_precision.Policy('mixed_float16')
+mixed_precision.set_global_policy(policy)
+
+gpus = tf.config.experimental.list_physical_devices('GPU')
+if gpus:
+    tf.config.experimental.set_memory_growth(gpus[0], True)
+else:
+    print("Bruh")
+
+decoder_transformer = keras.models.load_model('Models/LoginFormModel.keras')
+with open("tokenizer.pkl", "rb") as f:
+    tokenizer = pickle.load(f) 
+
 def generate_button_code(prompt):
-    decoder_transformer = keras.models.load_model('Models/MultiComponentModel.keras')
-    max_seq_len = 37
-    with open("tokenizer.pkl", "wb") as f:
-      tokenizer = pickle.load(tokenizer, f)
+    max_seq_len = 145
     prompt = "<Start> " + prompt + " <SEP>"
     
     input_sequence = tokenizer.texts_to_sequences([prompt])[0]
     current_sequence = pad_sequences([input_sequence], maxlen=max_seq_len-1, padding='post')
     
     generated_tokens = []
-    for _ in range(50):  
+    for _ in range(200):  
         predictions = decoder_transformer.predict(current_sequence, verbose=0)
         next_token = np.argmax(predictions[0, len(input_sequence) + len(generated_tokens) - 1])
         
@@ -41,11 +53,10 @@ def generate_button_code(prompt):
     result = [tokenizer.index_word.get(token, "") for token in generated_tokens]
     return " ".join(result)
 
-test_prompt = "Generate a Dark Blue Button saying Jan"
-generated = generate_button_code(test_prompt)
-print("Generated Button Code:", generated)
-
-
 @app.get("/get/response/{prompt}")
 def getResponseFromModel(prompt:str):
-    generate_button_code(prompt)
+    return generate_button_code(prompt)
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("Api:app", host="0.0.0.0", port=8000, reload=True)
