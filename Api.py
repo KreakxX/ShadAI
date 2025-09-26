@@ -31,7 +31,7 @@ with open("tokenizer.pkl", "rb") as f:
     tokenizer = pickle.load(f) 
 
 def generate_button_code(prompt):
-    max_seq_len = 145
+    max_seq_len = 147
     prompt = "<Start> " + prompt + " <SEP>"
     
     input_sequence = tokenizer.texts_to_sequences([prompt])[0]

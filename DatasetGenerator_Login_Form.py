@@ -163,7 +163,6 @@ field_layouts = [
 ]
 
 def get_color_scheme(use_colormap=True):
-    """Generiert ein kohärentes Farbschema"""
     if use_colormap:
         color_key = random.choice(list(colorMap.keys()))
         primary_color = colorMap[color_key]
@@ -253,7 +252,7 @@ def generate_form_code(is_login=True):
         oauth_section = f'''
 {oauth_buttons_html}'''
     
-    form_code = f'''<Card{' className="' + card_style + '"' if card_style else ''}>
+    form_code = f'''<Card{' className="'+ "bg-"+colors_scheme['primary'] + " " + card_style + '"' if card_style else ''}>
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           <CardDescription>
@@ -308,19 +307,19 @@ def generate_prompt(form_details, colors_scheme):
     
     if template_type == "simple":
         templates = [
-            f"Create a {form_type} form",
-            f"Build {title} component",
-            f"Generate {form_type} interface",
-            f"Make {title} form"
+            f"Create a {colors_scheme['color_name'].lower()} {form_type} form",
+            f"Build {colors_scheme['color_name'].lower()} {title} component",
+            f"Generate {colors_scheme['color_name'].lower()} {form_type} interface",
+            f"Make {colors_scheme['color_name'].lower()} {title} form"
         ]
         return random.choice(templates)
     
     elif template_type == "medium":
         templates = [
-            f"Create a {form_type} form with email and password fields",
-            f"Build a {title} component with social login options",
-            f"Generate a {form_type} interface with OAuth buttons",
-            f"Make a {title} form with multiple signin options"
+            f"Create a {colors_scheme['color_name'].lower()} {form_type} form with email and password fields",
+            f"Build a {colors_scheme['color_name'].lower()} {title} component with social login options",
+            f"Generate a {form_type} interface with OAuth buttons and {colors_scheme['color_name'].lower()} colors",
+            f"Make a {title} form {colors_scheme['color_name'].lower()} with multiple signin options"
         ]
         return random.choice(templates)
     
