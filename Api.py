@@ -26,12 +26,12 @@ if gpus:
 else:
     print("Bruh")
 
-decoder_transformer = keras.models.load_model('Models/LoginFormModel.keras')
+decoder_transformer = keras.models.load_model('Models/LoginFormModelNew.keras')
 with open("tokenizer.pkl", "rb") as f:
     tokenizer = pickle.load(f) 
 
 def generate_button_code(prompt):
-    max_seq_len = 147
+    max_seq_len = 165
     prompt = "<Start> " + prompt + " <SEP>"
     
     input_sequence = tokenizer.texts_to_sequences([prompt])[0]

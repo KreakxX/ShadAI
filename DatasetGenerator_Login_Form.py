@@ -196,12 +196,12 @@ def get_color_scheme(use_colormap=True):
             "color_name": color.capitalize()
         }
 
-def generate_oauth_buttons(num_buttons, button_style=""):
+def generate_oauth_buttons(num_buttons,colors_scheme, button_style="" ):
     selected_buttons = random.sample(oauth_buttons, num_buttons)
     oauth_html = ""
     
     for btn in selected_buttons:
-        oauth_html += f'''                <Button variant="outline" className="w-full {button_style}">
+        oauth_html += f'''<Button variant="outline" className="w-full text-white border border-{colors_scheme['accent']} bg-{colors_scheme['accent']} {button_style}">
                   {btn['text']}
                 </Button>
 '''
@@ -241,14 +241,14 @@ def generate_form_code(is_login=True):
         forgot_text = random.choice(forgot_password_texts)
         forgot_password_link = f'''                  <a
                     href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                    className="ml-auto inline-block text-sm text-{colors_scheme['accent']} underline-offset-4 hover:underline"
                   >
                     {forgot_text}
                   </a>'''
     
     oauth_section = ""
     if num_oauth > 0:
-        oauth_buttons_html = generate_oauth_buttons(num_oauth, button_style)
+        oauth_buttons_html = generate_oauth_buttons(num_oauth,colors_scheme, button_style)
         oauth_section = f'''
 {oauth_buttons_html}'''
     
@@ -269,21 +269,23 @@ def generate_form_code(is_login=True):
                   type="email"
                   placeholder="{email_placeholder}"
                   required
+                  className="bg-{colors_scheme['accent']} border border-{colors_scheme['accent']}"
                 />
               </div>
               <div className="{field_layout}">
                 <div className="flex items-center">
-                  <Label htmlFor="password">{password_label}</Label>{forgot_password_link}
+                  <Label className="text-{colors_scheme['accent']}" htmlFor="password">{password_label}</Label>{forgot_password_link}
                 </div>
-                <Input id="password" type="password" required />
+                <Input className="bg-{colors_scheme['accent']} border border-{colors_scheme['accent']}"
+  id="password" type="password" required />
               </div>
               <div className="flex flex-col gap-3">
-                <Button type="submit" className="w-full bg-{colors_scheme['button']} {button_style}">
+                <Button type="submit" className="w-full text-{colors_scheme['accent']} bg-{colors_scheme['button']} {button_style}">
                   {main_button_text}
                 </Button>{oauth_section}
               </div>
             </div>
-            <div className="mt-4 text-center text-sm">
+            <div className="mt-4 text-center text-sm text-{colors_scheme['accent']}">
               {alt_text}{" "}
               <a href="#" className="underline underline-offset-4">
                 {alt_link}
@@ -358,9 +360,9 @@ while len(prompts) < target_samples and attempts < max_attempts:
     prompt = generate_prompt(form_details, colors_scheme)
     
     if prompt not in prompt_set and form_code not in code_set:
-        prompt_set.add(prompt)
+        prompt_set.add(prompt.lower())
         code_set.add(form_code)
-        prompts.append(prompt)
+        prompts.append(prompt.lower())
         codes.append(form_code)
 
 
